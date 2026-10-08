@@ -1,0 +1,22 @@
+# Dependencias y compilación
+node_modules
+dist
+dist-ssr
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Firebase
+.firebase/
+*-debug.log
+firebase-debug.log*
+
+# Logs y editor
+npm-debug.log*
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.local

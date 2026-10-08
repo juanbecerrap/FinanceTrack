@@ -1,0 +1,73 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------- Funciones auxiliares ----------
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function validTransaction(data) {
+      return data.keys().hasOnly([
+          'description', 'type', 'amount', 'category', 'date',
+          'paymentMethod', 'note', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasAll(['description', 'type', 'amount', 'category', 'date'])
+        && data.description is string
+        && data.description.size() > 0 && data.description.size() <= 100
+        && data.type in ['income', 'expense']
+        && data.amount is number
+        && data.amount > 0 && data.amount <= 100000000000
+        && data.category is string
+        && ((data.type == 'income'
+              && data.category in ['Salario', 'Freelance', 'Ventas', 'Inversiones', 'Otros'])
+            || (data.type == 'expense'
+              && data.category in [
+                'Alimentación', 'Transporte', 'Vivienda', 'Servicios', 'Salud',
+                'Educación', 'Entretenimiento', 'Compras', 'Otros'
+              ]))
+        && data.date is string
+        && data.date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && (!('paymentMethod' in data) || (data.paymentMethod is string && data.paymentMethod.size() <= 50))
+        && (!('note' in data) || (data.note is string && data.note.size() <= 300));
+    }
+
+    function validBudget(data) {
+      return data.keys().hasOnly(['category', 'limit', 'period', 'createdAt', 'updatedAt'])
+        && data.keys().hasAll(['category', 'limit', 'period'])
+        && data.category is string
+        && data.category in [
+          'Alimentación', 'Transporte', 'Vivienda', 'Servicios', 'Salud',
+          'Educación', 'Entretenimiento', 'Compras', 'Otros'
+        ]
+        && data.limit is number
+        && data.limit > 0 && data.limit <= 100000000000
+        && data.period is string
+        && data.period.matches('^[0-9]{4}-(0[1-9]|1[0-2])$');
+    }
+
+    // ---------- Datos por usuario ----------
+    match /users/{userId}/transactions/{transactionId} {
+      allow read, delete: if isOwner(userId);
+      allow create, update: if isOwner(userId) && validTransaction(request.resource.data);
+    }
+
+    match /users/{userId}/budgets/{budgetId} {
+      allow read, delete: if isOwner(userId);
+      allow create, update: if isOwner(userId)
+        && validBudget(request.resource.data)
+        // El ID del presupuesto es "<periodo>_<categoria>": evita duplicados.
+        && budgetId == request.resource.data.period + '_' + request.resource.data.category;
+    }
+
+    // Cualquier otra ruta queda denegada.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
