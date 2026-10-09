@@ -1,137 +1,110 @@
-# 💰 FinanceTrack — Gestor de Finanzas Personales
+# FinanceTrack — Panel de Finanzas Personales
 
-FinanceTrack es una aplicación web diseñada para facilitar la administración de las finanzas personales, permitiendo llevar un mejor control del dinero mediante una interfaz intuitiva, moderna y adaptable a diferentes dispositivos.
+FinanceTrack es un panel de finanzas personales diseñado para ayudar a los usuarios a gestionar sus ingresos, gastos y transacciones mediante una interfaz intuitiva y organizada.
 
-## 🌐 Live Demo
+La aplicación ofrece una vista centralizada de la actividad financiera para facilitar el seguimiento de las transacciones y el control de las finanzas personales.
 
-🚀 **Aplicación en vivo:** [FinanceTrack — Live Demo](https://financetrack-849c1.web.app/)
+## 🚀 Demo en vivo
 
-📂 **Código fuente:** [GitHub — FinanceTrack](https://github.com/juanbecerrap/FinanceTrack)
-
-## ✨ Características
-
-* 📊 Panel principal para visualizar la información financiera.
-* 💵 Gestión y consulta de movimientos financieros.
-* ➕ Formulario para registrar nuevos movimientos.
-* 🔐 Pantalla de inicio de sesión.
-* 📱 Interfaz adaptable a dispositivos móviles.
-* ☁️ Integración con Firebase para servicios en la nube.
+**[Ver FinanceTrack](https://financetrack-849c1.web.app/)**
 
 ## 📸 Capturas de pantalla
 
 ### 1. Panel principal
 
-Vista general del panel de control de FinanceTrack.
+Vista general de la actividad financiera y la información más relevante del usuario.
 
 ![Panel principal de FinanceTrack](screenshots/01-dashboard.png)
 
-### 2. Movimientos financieros
+### 2. Transacciones
 
-Interfaz para consultar y gestionar los movimientos financieros registrados.
+Sección dedicada a consultar y gestionar los movimientos financieros.
 
-![Movimientos financieros](screenshots/02-transactions.png)
+![Transacciones de FinanceTrack](screenshots/02-transactions.png)
 
-### 3. Registrar movimiento
+### 3. Agregar transacción
 
-Formulario para agregar nuevos movimientos financieros.
+Formulario para registrar nuevos movimientos financieros.
 
-![Formulario para registrar movimientos](screenshots/03-add-transaction.png)
+![Formulario para agregar una transacción](screenshots/03-add-transaction.png)
 
 ### 4. Inicio de sesión en dispositivos móviles
 
-Vista de la pantalla de inicio de sesión adaptada a dispositivos móviles.
+Interfaz de inicio de sesión adaptada a pantallas pequeñas.
 
-![Inicio de sesión móvil](screenshots/04-login-mobile.jpeg)
+<img src="screenshots/04-login-mobile.jpeg" alt="Inicio de sesión móvil de FinanceTrack" width="250">
 
 ### 5. Panel principal en dispositivos móviles
 
-Visualización del panel principal en pantallas pequeñas.
+Visualización del panel principal adaptado a dispositivos móviles.
 
-![Panel principal móvil](screenshots/05-dashboard-mobile.jpeg)
+<img src="screenshots/05-dashboard-mobile.jpeg" alt="Panel principal móvil de FinanceTrack" width="250">
 
 ## 🛠️ Tecnologías utilizadas
 
-* **React** — Desarrollo de la interfaz de usuario.
-* **JavaScript** — Lógica e interactividad de la aplicación.
-* **CSS** — Diseño y estilos de la interfaz.
-* **Firebase Authentication** — Autenticación de usuarios.
-* **Cloud Firestore** — Base de datos en la nube.
-* **Firebase Hosting** — Despliegue de la aplicación.
-* **Git y GitHub** — Control de versiones y gestión del código fuente.
+* **React:** desarrollo de la interfaz de usuario.
+* **JavaScript:** lógica e interactividad de la aplicación.
+* **CSS:** estilos y diseño adaptable.
+* **Firebase Authentication:** autenticación de usuarios.
+* **Cloud Firestore:** almacenamiento de datos en la nube.
+* **Firebase Hosting:** publicación y alojamiento de la aplicación.
 
-## ⚙️ Instalación y ejecución
+## ✨ Características principales
 
-### 1. Clonar el repositorio
+* Panel de control de finanzas personales.
+* Seguimiento de ingresos y gastos.
+* Gestión de transacciones financieras.
+* Autenticación de usuarios.
+* Almacenamiento de datos en la nube.
+* Interfaz adaptable a computadoras y dispositivos móviles.
+
+## 💻 Instalación y ejecución local
+
+Para ejecutar el proyecto en tu equipo, sigue estos pasos:
+
+**1. Clonar el repositorio**
 
 ```bash
 git clone https://github.com/juanbecerrap/FinanceTrack.git
 ```
 
-### 2. Entrar en la carpeta del proyecto
+**2. Entrar en la carpeta del proyecto**
 
 ```bash
 cd FinanceTrack
 ```
 
-### 3. Instalar las dependencias
+**3. Instalar las dependencias**
 
 ```bash
 npm install
 ```
 
-### 4. Iniciar la aplicación
-
-Ejecuta el comando correspondiente al proyecto, según los scripts definidos en `package.json`.
-
-Para Create React App:
+**4. Iniciar el servidor de desarrollo**
 
 ```bash
 npm start
 ```
 
-Para Vite:
+Si el proyecto utiliza Vite, ejecuta `npm run dev` en su lugar.
 
-```bash
-npm run dev
-```
+**Nota:** Para ejecutar la aplicación localmente, asegúrate de configurar correctamente Firebase y las variables de entorno necesarias.
 
-## 🔥 Configuración de Firebase
+## 📂 Repositorio
 
-Para ejecutar las funcionalidades que dependen de Firebase, configura el proyecto con los servicios y las credenciales necesarios.
-
-Si utilizas variables de entorno, crea un archivo `.env` con las variables requeridas por la aplicación.
-
-**Importante:** no publiques contraseñas, claves privadas ni credenciales sensibles en el repositorio.
-
-## 📂 Estructura del proyecto
-
-```text
-FinanceTrack/
-├── public/
-├── src/
-├── screenshots/
-│   ├── 01-dashboard.png
-│   ├── 02-transactions.png
-│   ├── 03-add-transaction.png
-│   ├── 04-login-mobile.jpeg
-│   └── 05-dashboard-mobile.jpeg
-├── .gitignore
-├── package.json
-└── README.md
-```
-
-## 🚀 Despliegue
-
-FinanceTrack está publicado mediante Firebase Hosting.
-
-🔗 **Visitar aplicación:** https://financetrack-849c1.web.app/
+**[Ver código fuente en GitHub](https://github.com/juanbecerrap/FinanceTrack)**
 
 ## 👨‍💻 Autor
 
 **Juan Becerra**
 
-Desarrollador web interesado en crear aplicaciones funcionales, intuitivas y orientadas a resolver problemas reales.
+Diseñado y desarrollado con dedicación y pasión.
 
-* **GitHub:** [@juanbecerrap](https://github.com/juanbecerrap)
-* **Repositorio:** [FinanceTrack](https://github.com/juanbecerrap/FinanceTrack)
+* **GitHub:** [juanbecerrap](https://github.com/juanbecerrap)
+* **Demo:** [FinanceTrack](https://financetrack-849c1.web.app/)
+
+---
+
+*FinanceTrack — Toma el control de tus finanzas.*
+
 
